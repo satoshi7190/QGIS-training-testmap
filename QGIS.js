@@ -40,6 +40,18 @@ const callApi = async (url) => {
                 },
             });
 
+            map.addLayer({
+                id: data.name + 'symbol',
+                type: 'symbol',
+                source: data.name,
+                layout: {
+                    // get the title name from the source's "title" property
+                    'text-field': ['get', 'name'],
+                    'text-offset': [0, 1.25],
+                    'text-anchor': 'top',
+                },
+            });
+
             map.on('click', data.name, (e) => {
                 // Copy coordinates array.
                 const coordinates = e.features[0].geometry.coordinates;
@@ -89,6 +101,7 @@ map = new maplibregl.Map({
                 },
             },
         ],
+        glyphs: 'https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf',
     },
     center: [138.410568, 36.206088],
     zoom: 2,
