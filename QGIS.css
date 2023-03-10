@@ -8,3 +8,24 @@ body {
     bottom: 0;
     width: 100%;
 }
+
+svg {
+    animation: hoge 0.5s;
+}
+
+/* .maplibregl-marker {
+    transition: 0.3s;
+} */
+
+@keyframes hoge {
+    0% {
+        transform: scale(1) rotate(-360deg);
+    }
+    50% {
+        fill: transparent;
+        transform: scale(2) rotate(0deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
